@@ -1,0 +1,13 @@
+:root {
+    --couleur: #1a202c;
+}
+
+body {
+    font-family: Arial;
+    padding: 50px;
+    background: #f8f9fa;
+}
+
+h1 {
+    color: var(--couleur);
+}
