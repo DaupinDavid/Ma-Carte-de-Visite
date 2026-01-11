@@ -31,7 +31,7 @@ body {
     overflow-x: hidden;
 }
 
-/* LE MESH GRADIENT (Fond exact de l'ancien site) */
+/* LE MESH GRADIENT*/
 body::before {
     content: "";
     position: fixed;
@@ -50,7 +50,7 @@ body::before {
 }
 
 /* =========================================
-   3. TYPOGRAPHIE GLOBALE (Héritée de Tailwind)
+   3. TYPOGRAPHIE GLOBALE
    ========================================= */
 h1,
 h2,
@@ -59,7 +59,7 @@ h3,
     font-family: 'Inter', sans-serif;
 }
 
-/* Pour les sous-titres en majuscules (tracking-widest) */
+/* Pour les sous-titres en majuscules */
 .uppercase-tracking {
     text-transform: uppercase;
     letter-spacing: 0.3em;
@@ -71,7 +71,6 @@ h3,
    ========================================= */
 .main-header {
     background: rgba(5, 5, 5, 0.5);
-    /* Semi-transparent */
     backdrop-filter: blur(10px);
     padding: 20px 0;
     position: sticky;
@@ -82,10 +81,8 @@ h3,
 
 .container {
     max-width: 1150px;
-    /* max-w-6xl */
     margin: 0 auto;
     padding: 0 24px;
-    /* px-6 */
 }
 
 nav {
@@ -96,11 +93,8 @@ nav {
 
 .logo {
     font-weight: 900;
-    /* font-black */
     font-size: 1.5rem;
-    /* text-2xl */
     letter-spacing: -0.05em;
-    /* tracking-tighter */
     color: white;
 }
 
@@ -114,9 +108,7 @@ nav {
     text-decoration: none;
     color: var(--text-muted);
     font-weight: 500;
-    /* font-medium */
     font-size: 0.875rem;
-    /* text-sm */
     transition: color 0.3s ease;
 }
 
@@ -125,35 +117,29 @@ nav {
 }
 
 /* =========================================
-   5. HERO SECTION (L'ACCUEIL)
+   5. HERO SECTION
    ========================================= */
 .hero {
     padding: 80px 0 80px 0;
     text-align: center;
 }
 
-/* LE GROS TITRE (Copie exacte de text-5xl md:text-7xl font-black) */
+
 .hero h1 {
     font-size: 3rem;
-    /* Mobile base */
     font-weight: 900;
-    /* BLACK (Très gras) */
     line-height: 1.4;
-    /* leading-tight */
     letter-spacing: -0.05em;
-    /* tracking-tighter */
     margin-bottom: 70px;
 }
 
-/* Version PC plus grande */
 @media (min-width: 768px) {
     .hero h1 {
         font-size: 4.5rem;
-        /* ~72px (text-7xl) */
     }
 }
 
-/* Effet dégradé sur le texte */
+
 .text-gradient {
     background: linear-gradient(to right, #3b82f6, #a855f7, #d946ef);
     -webkit-background-clip: text;
@@ -161,17 +147,12 @@ nav {
     color: transparent;
 }
 
-/* SOUS-TITRE (Data Analyst...) - Copie de tracking-[0.3em] */
 .subtitle {
     font-size: 0.875rem;
-    /* text-sm */
     font-weight: 700;
-    /* font-bold */
     text-transform: uppercase;
     letter-spacing: 0.3em;
-    /* Espacement très large */
     color: #6b7280;
-    /* text-gray-500 */
     margin-bottom: 50px;
     display: block;
 }
@@ -184,7 +165,6 @@ nav {
     color: white;
     padding: 12px 32px;
     border-radius: 9999px;
-    /* Pill */
     font-weight: 700;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -198,7 +178,7 @@ nav {
 }
 
 /* =========================================
-   6. SECTION À PROPOS (Glassmorphic)
+   6. SECTION À PROPOS
    ========================================= */
 .about {
     padding: 60px 0;
@@ -206,11 +186,9 @@ nav {
 
 .glass-container {
     background: rgba(20, 20, 20, 0.6);
-    /* glassmorphic base */
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
-    /* rounded-2xl */
     padding: 40px;
     text-align: center;
     position: relative;
@@ -222,28 +200,24 @@ nav {
 }
 
 
-/* Titres de sections (TAG STYLE) */
+/* Titres de sections */
 .section-title {
     font-size: 0.85rem;
-    /* text-xs */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.25em;
-    /* tracking-widest */
     color: #f425af;
     margin-bottom: 32px;
     display: inline-block;
 }
 
-/* Unification des 3 blocs - STYLE ÉPURÉ */
+/* Unification des 3 blocs */
 .about-text h2,
 .about-text p {
     font-size: 1.1rem;
     /* Taille identique pour les 3 */
     font-weight: 400;
-    /* <--- POIDS NORMAL (Pas de gras) */
     color: #9ca3af;
-    /* Gris de ton image */
     line-height: 1.7;
     margin-bottom: 25px;
     max-width: 850px;
@@ -251,11 +225,9 @@ nav {
     margin-right: auto;
 }
 
-/* Seuls les mots importants ressortent en blanc */
 .about-text strong {
     color: #ffffff;
     font-weight: 600;
-    /* Juste un peu plus visible, mais pas "gras lourd" */
 }
 
 /* Boutons CV / LinkedIn */
@@ -297,11 +269,10 @@ nav {
 .btn-glow:hover {
     background: #e5e5e5;
     color: black;
-    /* Reste noir */
 }
 
 /* =========================================
-   7. SKILLS (Avec JetBrains Mono)
+   7. SKILLS SECTION
    ========================================= */
 .skills {
     padding: 80px 0;
@@ -359,12 +330,9 @@ nav {
     gap: 3rem;
     width: max-content;
     animation: scroll 120s linear infinite;
-    /* UTILISATION DE LA POLICE CODE DE L'ANCIEN SITE */
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.875rem;
-    /* text-sm */
     color: #9ca3af;
-    /* text-gray-400 */
 }
 
 @keyframes scroll {
@@ -399,9 +367,7 @@ nav {
     padding: 8px 24px;
     border-radius: 9999px;
     font-weight: 700;
-    /* font-bold */
     font-size: 0.875rem;
-    /* text-sm */
     cursor: pointer;
     transition: 0.3s;
     font-family: 'Inter', sans-serif;
@@ -422,12 +388,10 @@ nav {
 .project-card {
     cursor: pointer;
     padding: 16px;
-    /* p-4 */
 }
 
 .project-image {
     height: 180px;
-    /* height: 180px fixe comme ancien site */
     background: #1a1a1a;
     border-radius: 12px;
     margin-bottom: 16px;
@@ -438,7 +402,6 @@ nav {
     color: #333;
 }
 
-/* Dégradés pour les images placeholder */
 .gradient-1 {
     background: linear-gradient(135deg, #3b82f6, #2dd4bf);
     color: white;
@@ -451,7 +414,6 @@ nav {
 
 .project-content h3 {
     font-size: 1.5rem;
-    /* text-2xl */
     font-weight: 700;
     margin-bottom: 8px;
     transition: color 0.3s;
@@ -463,16 +425,13 @@ nav {
 
 .project-content p {
     font-size: 0.875rem;
-    /* text-sm */
     color: #d1d5db;
-    /* text-gray-300 */
     line-height: 1.6;
     margin-bottom: 16px;
 }
 
 .project-link {
     font-size: 0.75rem;
-    /* text-xs */
     font-weight: 700;
     color: var(--primary);
     text-transform: uppercase;
@@ -545,9 +504,7 @@ footer {
     padding: 60px 0 20px 0;
     margin-top: 40px;
     color: #6b7280;
-    /* text-gray-500 */
     font-size: 0.875rem;
-    /* text-sm */
 }
 
 .footer-content {
@@ -604,19 +561,16 @@ html {
 
 section {
     scroll-margin-top: 50px;
-    /* Le coussin invisible au-dessus des titres */
 }
 
 /* --- NOUVELLES RÈGLES POUR LES LOGOS --- */
 .tech-item {
     display: flex;
     flex-direction: column;
-    /* Aligne logo et texte verticalement */
     align-items: center;
     justify-content: center;
     gap: 12px;
     min-width: 140px;
-    /* Espace régulier entre chaque bloc */
 }
 
 .tech-item img {

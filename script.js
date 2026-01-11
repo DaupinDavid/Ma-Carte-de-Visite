@@ -1,4 +1,4 @@
-// --- 1. TES DONNÉES (La source de tout ton portfolio) ---
+// --- 1. MES DONNÉES ---
 const portfolioData = {
   personal: {
     name: "DAUPIN David",
@@ -22,18 +22,18 @@ const portfolioData = {
         "IA Générative & Data Viz au service de l’équilibre Désir/Rentabilité: +18,2% de marge identifiée",
       imageCover: "Dual_Ride/img/dualridecover.png",
       imagesModal: [
-        "0.png",
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png",
-        "6.png",
-        "7.png",
-        "8.png",
-        "9.png",
-        "10.png",
-        "11.png",
+        "Dual_Ride/img/0.png",
+        "Dual_Ride/img/1.png",
+        "Dual_Ride/img/2.png",
+        "Dual_Ride/img/3.png",
+        "Dual_Ride/img/4.png",
+        "Dual_Ride/img/5.png",
+        "Dual_Ride/img/6.png",
+        "Dual_Ride/img/7.png",
+        "Dual_Ride/img/8.png",
+        "Dual_Ride/img/9.png",
+        "Dual_Ride/img/10.png",
+        "Dual_Ride/img/11.png",
       ],
       fullDescription: `
         <h4 class="text-primary font-bold mb-2 uppercase text-xs tracking-widest">1. Problématique Business & Insights Marché</h4>
@@ -69,9 +69,10 @@ const portfolioData = {
 
         <p class="mb-4 text-gray-400 text-xs">Analyse de la valeur : Cette équation quantifie la valeur générée : nous soustrayons les coûts opérationnels de l'IA (tokens Gemini, crédits Tripo3D) des gains massifs de marge (18,2%) et de productivité (prototypage 2D/3D en minutes au lieu de semaines). Le gain inclut également l'évitement de coût lié à la réduction du risque industriel grâce à la validation par jumeau numérique.</p>
         <p class="mb-6 text-gray-300 text-xs font-bold uppercase">Note de Conformité : Respect strict du RGPD et de l'AI Act.</p>
+        
         <h4 class="text-primary font-bold mb-4 uppercase text-[0.65rem] tracking-[0.2em]">Accès aux démonstrations live</h4>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-            <a href="configurator.html" target="_blank" 
+            <a href="Dual_Ride/configurator.html" target="_blank" 
                class="flex flex-col p-4 border border-primary/20 bg-primary/5 rounded-xl hover:bg-primary/10 transition-all group">
                 <span class="text-primary font-bold text-[0.6rem] uppercase tracking-widest mb-1">Interface B2C</span>
                 <span class="text-white text-sm font-bold">Configurateur 3D Immersif</span>
@@ -80,12 +81,12 @@ const portfolioData = {
                 </p>
             </a>
 
-            <a href="dashboard.html" target="_blank" 
+            <a href="Dual_Ride/dashboard.html" target="_blank" 
                class="flex flex-col p-4 border border-white/10 bg-white/5 rounded-xl hover:bg-white/10 transition-all group">
                 <span class="text-gray-400 font-bold text-[0.6rem] uppercase tracking-widest mb-1">Interface B2B</span>
                 <span class="text-white text-sm font-bold">Dashboard Décisionnel R&D</span>
                 <p class="text-gray-400 text-[0.65rem] mt-2 italic leading-relaxed">
-                    Explorez le clustering TensorFlow et l'analyse de rentabilité industrielle.
+                    Explorez le clustering TensorFlow et l'analyse de rentabilité industrielle. (Fichier "metadata.tsv" à retrouver sur GitHub)
                 </p>
             </a>
         </div>
@@ -111,7 +112,7 @@ const portfolioData = {
     },
   ],
 };
-// --- 2. GÉNÉRATION DYNAMIQUE DE LA TECH STACK AVEC LOGOS ---
+// --- 2. GÉNÉRATION DYNAMIQUE DES LOGOS ---
 
 window.addEventListener("DOMContentLoaded", () => {
   const logoMapping = {
@@ -177,10 +178,10 @@ window.addEventListener("DOMContentLoaded", () => {
     GITHUB: "github",
     RUST: "rust",
     PYO3: "python",
-    CHATGPT: "openai", // Remplacement effectué
+    CHATGPT: "openai", 
     "GEMINI API": "googlegemini",
     "GOOGLE AI STUDIO": "google",
-    "DALL-E": "openai", // Remplacement effectué
+    "DALL-E": "openai", 
     MIDJOURNEY: "midjourney",
     "NOTION AI": "notion",
 
@@ -203,11 +204,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const techSpans = document.querySelectorAll(".tech-scroll span");
 
   techSpans.forEach((span) => {
-    // Nettoyage : gestion des espaces multiples et retours à la ligne
     const techName = span.textContent.trim().replace(/\s+/g, " ");
     const upperName = techName.toUpperCase();
 
-    // Recherche du slug : Dictionnaire d'abord, sinon automatique
     let techSlug =
       logoMapping[upperName] || techName.toLowerCase().replace(/\s+/g, "");
 
@@ -218,7 +217,6 @@ window.addEventListener("DOMContentLoaded", () => {
     img.src = `https://cdn.simpleicons.org/${techSlug}/white`;
     img.alt = techName;
 
-    // Si l'icône n'existe pas, on met un logo générique "code"
     img.onerror = () => {
       if (!img.src.includes("code")) {
         img.src = "https://cdn.simpleicons.org/code/white";
@@ -231,7 +229,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// --- FONCTIONS DE FILTRAGE (Inchangées) ---
 function showData() {
   document.getElementById("grid-data").style.display = "grid";
   document.getElementById("placeholder-transversal").style.display = "none";
@@ -254,7 +251,6 @@ function openModal(project) {
   document.getElementById("modal-tag").textContent = project.tag;
   document.getElementById("modal-body").innerHTML = project.fullDescription;
 
-  // 2. Remplissage de la Tech Stack (Tes badges d'outils)
   const stackContainer = document.getElementById("modal-stack");
   if (stackContainer) {
     stackContainer.innerHTML = "";
@@ -267,14 +263,14 @@ function openModal(project) {
     });
   }
 
-  // 3. Remplissage de la Galerie (Tes 12 images)
+  // 3. Remplissage de la Galerie
   const galleryContainer = document.getElementById("modal-gallery");
   if (galleryContainer) {
     galleryContainer.innerHTML = "";
     project.imagesModal.forEach((imgSrc) => {
       const img = document.createElement("img");
       // ON AJOUTE LE DOSSIER img/ ICI
-      img.src = `img/${imgSrc}`;
+      img.src = imgSrc;
       img.alt = `Capture du projet ${project.title}`;
       img.className =
         "w-full h-auto rounded-lg border border-white/10 shadow-lg object-cover transition-transform hover:scale-105 duration-300";
@@ -282,7 +278,6 @@ function openModal(project) {
     });
   }
 
-  // --- LE SEUL AJOUT : DÉCLENCHEUR LATEX ---
   // On force l'affichage de l'équation après l'ouverture
   if (window.MathJax && window.MathJax.typesetPromise) {
     setTimeout(() => {
@@ -305,7 +300,6 @@ function closeModal() {
   }
 }
 
-// Correction de l'erreur de clic extérieur (Scope fixe)
 window.addEventListener("click", function (event) {
   const modal = document.getElementById("project-modal");
   if (event.target === modal) {
