@@ -1,14 +1,339 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
-    <title>Mon Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Daupin | Portfolio</title>
+
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- MathJax for rendering mathematical notation -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Tailwind CSS CDN with custom configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#f425af' }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
-<footer> <p>© 2024 - Mon Portfolio</p> </footer>
+
 <body>
-    <h1>David Daupin</h1>
-    <p>Data & IA Engineer</p>
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="main-header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    David Daupin
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="container">
+            <h1>
+                De la Donnée Brute<br>
+                <span class="text-gradient">à l'Intelligence Créative &</span><br>
+                <span class="text-gradient">Stratégique...</span>
+            </h1>
+            <p class="subtitle">
+                Aspirant Expert Data & IA - Tech • Design • Business
+            </p>
+            <a href="#projects" class="cta-button">Découvrir mes projets</a>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="about" id="about">
+        <div class="glass-container">
+            <h2 class="section-title">À propos</h2>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>
+                        <strong>Étudiant</strong> en 1ʳᵉ année du <strong>Programme Grande Ecole</strong> chez
+                        <strong>HETIC</strong> et Futur <strong>Expert Data & IA</strong>,
+                        j’<strong>orchestre</strong> la <strong>Tech</strong>, le <strong>Design</strong> et le
+                        <strong>Business</strong>.
+                    </h2>
+                    <p>
+                        J’exploite les <strong>données complexes</strong> via des <strong>pipelines
+                            industrialisés</strong> et l’<strong>IA </strong> pour<br>
+                        <strong>automatiser </strong> l’analyse, <strong>prédire</strong> et <strong>générer</strong>
+                        des <strong>insights exploitables.</strong>
+                    </p>
+                    <p>
+                        Je <strong>transforme</strong> ces insights en <strong>écosystèmes digitaux
+                            stratégiques</strong>, portés par un
+                        Design <strong> UI/UX intuitif, harmonieux et performant.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== BOUTONS DÉPLACÉS SOUS LA SECTION À PROPOS ===== -->
+        <div class="container">
+            <div class="about-buttons-container">
+
+                <a href="https://github.com/daupindavid" target="_blank" rel="noopener noreferrer"
+                    class="btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" fill="currentColor" width="18">
+                        <path
+                            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                    </svg>
+                    GitHub
+                </a>
+
+                <a href="cv.pdf" target="_blank" class="btn-secondary btn-glow">
+                    <span class="material-symbols-outlined">download</span> Télécharger CV
+                </a>
+
+                <a href="https://linkedin.com/in/david-daupin-691034212" target="_blank" rel="noopener noreferrer"
+                    class="btn-secondary btn-linkedin">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="18">
+                        <path
+                            d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Mes Compétences</h2>
+
+            <div class="skills-grid">
+                <div class="skill-card glass-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>Architecture Data & IA</h3>
+                    <p>Pipelines, Modélisation, Industrialisation, Scalabilité...</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Creative Design & UX</h3>
+                    <p>UX/UI Design, DataViz Interactive, <br>IA Générative, Identité...</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3>Stratégie & Performance</h3>
+                    <p>KPI & ROI, Automatisation, Stratégie, Croissance, Pilotage...</p>
+                </div>
+            </div>
+
+            <div class="tech-scroll-container">
+                <div class="tech-scroll">
+                    <span>PYTHON</span> <span>SQL</span> <span>BASH</span> <span>R</span> <span>EXCEL</span>
+                    <span>VBA</span> <span>JUPYTER</span> <span>PANDAS</span> <span>POLARS</span>
+                    <span>SCIKIT-LEARN</span> <span>XGBOOST</span> <span>TENSORFLOW</span> <span>PYTORCH</span>
+                    <span>YOLO</span> <span>RAG</span> <span>CHROMADB</span> <span>PINECONE</span> <span>MLFLOW</span>
+                    <span>SPARK</span> <span>PARQUET</span> <span>AIRFLOW</span> <span>MAGE</span> <span>KAFKA</span>
+                    <span>POWER BI</span> <span>TABLEAU</span> <span>DAX</span> <span>PLOTLY.JS</span>
+                    <span>STREAMLIT</span> <span>MATPLOTLIB</span> <span>SEABORN</span> <span>HTML5</span>
+                    <span>CSS3</span> <span>JAVASCRIPT</span> <span>REACTJS</span> <span>NODE.JS</span>
+                    <span>FLASK</span> <span>POSTGRESQL</span> <span>MONGODB</span> <span>REDIS</span>
+                    <span>FIGMA</span> <span>STITCH</span> <span>MODEL-VIEWER</span> <span>REVE</span> <span>SAM
+                        (META)</span> <span>TRIPOSTUDIO</span> <span>DOCKER</span> <span>KUBERNETES</span>
+                    <span>TERRAFORM</span> <span>HASHICORP VAULT</span> <span>PROMETHEUS</span> <span>GRAFANA</span>
+                    <span>GOOGLE CLOUD</span> <span>GIT</span> <span>GITHUB</span> <span>RUST</span> <span>PYO3</span>
+                    <span>CHATGPT</span> <span>GEMINI API</span> <span>GOOGLE AI STUDIO</span> <span>DALL-E</span>
+                    <span>MIDJOURNEY</span> <span>NOTION AI</span> <span>SEMRUSH</span> <span>AHREFS</span> <span>GOOGLE
+                        ADS</span> <span>GOOGLE ANALYTICS</span> <span>GTM</span> <span>STRIPE</span>
+                    <span>ZAPIER</span> <span>AIRTABLE</span> <span>NOTION</span> <span>SLACK API</span> <span>DISCORD
+                        API</span> <span>WEBSOCKETS</span> <span>MULTIPROCESSING</span>
+
+                    <span>PYTHON</span> <span>SQL</span> <span>BASH</span> <span>R</span> <span>EXCEL</span>
+                    <span>VBA</span> <span>JUPYTER</span> <span>PANDAS</span> <span>POLARS</span>
+                    <span>SCIKIT-LEARN</span> <span>XGBOOST</span> <span>TENSORFLOW</span> <span>PYTORCH</span>
+                    <span>YOLO</span> <span>RAG</span> <span>CHROMADB</span> <span>PINECONE</span> <span>MLFLOW</span>
+                    <span>SPARK</span> <span>PARQUET</span> <span>AIRFLOW</span> <span>MAGE</span> <span>KAFKA</span>
+                    <span>POWER BI</span> <span>TABLEAU</span> <span>DAX</span> <span>PLOTLY.JS</span>
+                    <span>STREAMLIT</span> <span>MATPLOTLIB</span> <span>SEABORN</span> <span>HTML5</span>
+                    <span>CSS3</span> <span>JAVASCRIPT</span> <span>REACTJS</span> <span>NODE.JS</span>
+                    <span>FLASK</span> <span>POSTGRESQL</span> <span>MONGODB</span> <span>REDIS</span>
+                    <span>FIGMA</span> <span>STITCH</span> <span>MODEL-VIEWER</span> <span>REVE</span> <span>SAM
+                        (META)</span> <span>TRIPOSTUDIO</span> <span>DOCKER</span> <span>KUBERNETES</span>
+                    <span>TERRAFORM</span> <span>HASHICORP VAULT</span> <span>PROMETHEUS</span> <span>GRAFANA</span>
+                    <span>GOOGLE CLOUD</span> <span>GIT</span> <span>GITHUB</span> <span>RUST</span> <span>PYO3</span>
+                    <span>CHATGPT</span> <span>GEMINI API</span> <span>GOOGLE AI STUDIO</span> <span>DALL-E</span>
+                    <span>MIDJOURNEY</span> <span>NOTION AI</span> <span>SEMRUSH</span> <span>AHREFS</span> <span>GOOGLE
+                        ADS</span> <span>GOOGLE ANALYTICS</span> <span>GTM</span> <span>STRIPE</span>
+                    <span>ZAPIER</span> <span>AIRTABLE</span> <span>NOTION</span> <span>SLACK API</span> <span>DISCORD
+                        API</span> <span>WEBSOCKETS</span> <span>MULTIPROCESSING</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Mes Projets</h2>
+
+            <div class="project-filters">
+                <button id="btn-data" class="filter-btn active" onclick="showData()">PROJETS DATA & IA</button>
+                <button id="btn-transversal" class="filter-btn" onclick="showTransversal()">PROJETS
+                    TRANSVERSAUX</button>
+            </div>
+
+            <div id="grid-data" class="projects-grid">
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <img src="img/dualridecover.png" alt="Dashboard Dual Ride : +18,2% de marge sur 15 400 profils"
+                            class="w-full h-full object-cover rounded-t-lg">
+                    </div>
+                    <div class="project-content">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-2xl font-bold text-white uppercase">Dual Ride</h3>
+                            <span
+                                class="text-[0.65rem] font-mono bg-white/10 text-gray-400 px-2 py-1 rounded tracking-tighter">
+                                BUSINESS INTELLIGENCE & GEN AI
+                            </span>
+                        </div>
+                        <p>IA Générative & Data Viz au service de l’équilibre Désir/Rentabilité: <br> +18,2% de marge
+                            identifiée</p>
+                        <button onclick="openModal(portfolioData.projects[0])"
+                            class="project-link text-primary font-bold uppercase text-xs mt-4">
+                            Voir le projet →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card">
+                    <div class="project-image gradient-2">P2</div>
+                    <div class="project-content">
+                        <h3>Casino Monté Carlo</h3>
+                        <p>Projet en cours d'intégration...</p>
+                        <a href="#" class="project-link">Voir le projet →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="placeholder-transversal" class="placeholder-box" style="display: none;">
+                <span class="material-symbols-outlined icon-tool">construction</span>
+                <p>Projets transversaux en cours d'intégration...</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Me Contacter</h2>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Votre nom</label>
+                    <input type="text" id="name" name="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Votre email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Votre message</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== PROJECT MODAL ===== -->
+    <div id="project-modal"
+        class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
+        <div
+            class="glass-container w-full max-w-3xl rounded-2xl p-8 relative max-h-[90vh] overflow-y-auto border border-white/10 bg-[#050505] no-scrollbar">
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white material-symbols-outlined">close</button>
+
+            <div id="modal-content">
+                <span id="modal-tag" class="text-xs font-mono bg-primary/20 text-primary px-2 py-1 rounded"></span>
+                <h2 id="modal-title" class="text-4xl font-black text-white mt-4 mb-6"></h2>
+
+                <div id="modal-body" class="text-gray-300 leading-relaxed space-y-4 mb-8"></div>
+
+                <div class="mt-8 pt-6 border-t border-white/10">
+                    <h4 class="text-xs font-bold uppercase text-gray-500 mb-4 tracking-widest">Technologies</h4>
+                    <div id="modal-stack" class="flex flex-wrap gap-2"></div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-white/10">
+                    <h4 class="text-xs font-bold uppercase text-gray-500 mb-4 tracking-widest">Visuels du projet</h4>
+                    <div id="modal-gallery" class="grid grid-cols-2 gap-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <p>Futur Expert Data & IA orienté<br>Tech, Design & Business.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <p><a href="#about">À propos</a></p>
+                    <p><a href="#projects">Projets</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Suivez-moi</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/david-daupin-691034212/" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://github.com/DaupinDavid" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 David Daupin. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="script.js"></script>
+
+
 </body>
 
 </html>
