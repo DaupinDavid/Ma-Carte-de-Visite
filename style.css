@@ -8,12 +8,10 @@
    ========================================= */
 :root {
     --bg-dark: #050505;
-    /* Ton fond noir exact */
     --primary: #f425af;
-    /* Ton rose fluo exact */
     --text-main: #ffffff;
     --text-muted: #9ca3af;
-    /* Gris Tailwind gray-400 */
+    
 }
 
 * {
@@ -59,14 +57,12 @@ h3,
     font-family: 'Inter', sans-serif;
 }
 
-/* Pour les sous-titres en majuscules */
 .uppercase-tracking {
     text-transform: uppercase;
     letter-spacing: 0.3em;
-    /* Correspond à tracking-[0.3em] */
 }
 
-/* =========================================
+/* ==========================================
    4. HEADER / NAVIGATION
    ========================================= */
 .main-header {
@@ -194,13 +190,9 @@ nav {
     position: relative;
     overflow: hidden;
     max-width: 900px;
-    /* Définit la largeur max du rectangle */
     margin: 0 auto;
-    /* Centre le rectangle horizontalement */
 }
 
-
-/* Titres de sections */
 .section-title {
     font-size: 0.85rem;
     font-weight: 700;
@@ -211,11 +203,9 @@ nav {
     display: inline-block;
 }
 
-/* Unification des 3 blocs */
 .about-text h2,
 .about-text p {
     font-size: 1.1rem;
-    /* Taille identique pour les 3 */
     font-weight: 400;
     color: #9ca3af;
     line-height: 1.7;
@@ -230,7 +220,6 @@ nav {
     font-weight: 600;
 }
 
-/* Boutons CV / LinkedIn */
 .about-buttons-container {
     display: flex;
     justify-content: center;
@@ -317,7 +306,6 @@ nav {
     color: #9ca3af;
 }
 
-/* BANDEAU DÉFILANT (Tech Scroll) */
 .tech-scroll-container {
     width: 100%;
     overflow: hidden;
@@ -548,13 +536,11 @@ footer {
         display: none;
     }
 
-    /* Cache le menu sur mobile pour l'instant */
     .hero h1 {
         font-size: 3rem;
     }
 }
 
-/* --- FIXE L'ESPACE AU CLIC (SCROLL) --- */
 html {
     scroll-behavior: smooth;
 }
@@ -563,7 +549,6 @@ section {
     scroll-margin-top: 50px;
 }
 
-/* --- NOUVELLES RÈGLES POUR LES LOGOS --- */
 .tech-item {
     display: flex;
     flex-direction: column;
