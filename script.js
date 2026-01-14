@@ -72,7 +72,7 @@ const portfolioData = {
         
         <h4 class="text-primary font-bold mb-4 uppercase text-[0.65rem] tracking-[0.2em]">Accès aux démonstrations live</h4>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-            <a href="Dual_Ride/CONFIGURATOR.HTML" target="_blank" 
+            <a href="Dual_Ride/configurator.html" target="_blank" 
                class="flex flex-col p-4 border border-primary/20 bg-primary/5 rounded-xl hover:bg-primary/10 transition-all group">
                 <span class="text-primary font-bold text-[0.6rem] uppercase tracking-widest mb-1">Interface B2C</span>
                 <span class="text-white text-sm font-bold">Configurateur 3D Immersif</span>
@@ -81,7 +81,7 @@ const portfolioData = {
                 </p>
             </a>
 
-            <a href="Dual_Ride/DASHBOARD.HTML" target="_blank" 
+            <a href="Dual_Ride/dashboard.html" target="_blank" 
                class="flex flex-col p-4 border border-white/10 bg-white/5 rounded-xl hover:bg-white/10 transition-all group">
                 <span class="text-gray-400 font-bold text-[0.6rem] uppercase tracking-widest mb-1">Interface B2B</span>
                 <span class="text-white text-sm font-bold">Dashboard Décisionnel R&D</span>
