@@ -1,309 +1,343 @@
-// --- 1. MES DONNÉES ---
-const portfolioData = {
-  personal: {
-    name: "DAUPIN David",
-    title: "DATA ANALYST - DATA & IA",
-    email: "david_945@live.fr",
-    linkedinURL: "https://www.linkedin.com/in/david-daupin-691034212",
-    heroLine1: "De la Donnée Brute",
-    heroLine2: "à l'Intelligence Créative &",
-    heroLine3: "Décisionnelle...",
-    about:
-      "Étudiant en 1ʳᵉ année chez <strong>HETIC</strong>, spécialisé en <strong>Data & IA</strong>.",
+/* =====================================================
+   DAVID DAUPIN — PORTFOLIO SCRIPT.JS
+   ===================================================== */
+
+"use strict";
+
+// ── CUSTOM CURSOR ─────────────────────────────────
+const cursor = document.getElementById("cursor");
+const cursorDot = document.getElementById("cursor-dot");
+
+let mouseX = 0,
+  mouseY = 0;
+let cursorX = 0,
+  cursorY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursorDot.style.left = mouseX + "px";
+  cursorDot.style.top = mouseY + "px";
+});
+
+function animateCursor() {
+  cursorX += (mouseX - cursorX) * 0.12;
+  cursorY += (mouseY - cursorY) * 0.12;
+  cursor.style.left = cursorX + "px";
+  cursor.style.top = cursorY + "px";
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+document
+  .querySelectorAll("a, button, .project-card, .filter-btn, .skill-card")
+  .forEach((el) => {
+    el.addEventListener("mouseenter", () =>
+      document.body.classList.add("cursor-hover"),
+    );
+    el.addEventListener("mouseleave", () =>
+      document.body.classList.remove("cursor-hover"),
+    );
+  });
+
+// ── SCROLL: HEADER + REVEAL ───────────────────────
+const header = document.getElementById("header");
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) e.target.classList.add("visible");
+    });
   },
-  projects: [
-    {
-      // Projet 1 : DUAL RIDE
-      id: "dual-ride",
-      category: "data",
-      title: "DUAL RIDE",
-      tag: "BUSINESS INTELLIGENCE & GEN AI",
-      shortDescription:
-        "IA Générative & Data Viz au service de l’équilibre Désir/Rentabilité: +18,2% de marge identifiée",
-      imageCover: "Dual_Ride/img/dualridecover.png",
-      imagesModal: [
-        "./Projets/Dual_Ride/img/0.png",
-        "./Projets/Dual_Ride/img/1.png",
-        "./Projets/Dual_Ride/img/2.png",
-        "./Projets/Dual_Ride/img/3.png",
-        "./Projets/Dual_Ride/img/4.png",
-        "./Projets/Dual_Ride/img/5.png",
-        "./Projets/Dual_Ride/img/6.png",
-        "./Projets/Dual_Ride/img/7.png",
-        "./Projets/Dual_Ride/img/8.png",
-        "./Projets/Dual_Ride/img/9.png",
-        "./Projets/Dual_Ride/img/10.png",
-        "./Projets/Dual_Ride/img/11.png",
-      ],
-      fullDescription: `
-        <h4 class="text-primary font-bold mb-2 uppercase text-xs tracking-widest">1. Problématique Business & Insights Marché</h4>
-        <p class="mb-4 text-gray-300 text-sm">Le projet résout le Paradoxe Technique : Comment concilier le désir esthétique et la contrainte industrielle pour maximiser la rentabilité ?</p>
-        <p class="mb-4 text-gray-300 text-sm">Analyse de 15 400 profils (Dataset Synthétique Gemini) : Calibrés sur les tendances réelles, les chiffres révèlent un rejet massif (75 %) du style "Manga/Insecte" actuel au profit d'une demande forte pour le Néo-Rétro 90s.</p>
-        <p class="mb-4 text-gray-300 text-sm">Le Paradoxe : Le client veut le look "Rétro" mais exige une mécanique moderne, fiable et compatible ZFE.</p>
+  { threshold: 0.12 },
+);
 
-        <h4 class="text-primary font-bold mb-2 uppercase text-xs tracking-widest">2. Workflow de Prototypage Génératif</h4>
-        <p class="mb-4 text-gray-300 text-sm">Conception : Inspiration Pinterest, génération 2D via Reve, et nettoyage haute précision via Aidemos/Meta (SAM).</p>
-        <p class="mb-4 text-gray-300 text-sm">Production 3D : Conversion en "Jumeau Numérique" (.glb) via Tripo3DAI pour une intégration web immédiate.</p>
+document
+  .querySelectorAll(".reveal")
+  .forEach((el) => revealObserver.observe(el));
 
-        <h4 class="text-primary font-bold mb-2 uppercase text-xs tracking-widest">3. Développement & Interface (Gen AI)</h4>
-        <p class="mb-4 text-gray-300 text-sm">Architecture (Stitch) : Génération des interfaces Frontend (Tailwind) avec des prompts différenciés pour le Client (immersif) et le Constructeur (analytique).</p>
-        <p class="mb-4 text-gray-300 text-sm">Intégrité : Développement de la logique technique complexe, notamment le script &lt;model-viewer&gt; pour la manipulation 3D interactive via Gemini.</p>
+window.addEventListener(
+  "scroll",
+  () => {
+    header.classList.toggle("scrolled", window.scrollY > 40);
+  },
+  { passive: true },
+);
 
-        <h4 class="text-primary font-bold mb-2 uppercase text-xs tracking-widest">4. Intelligence Décisionnelle & XAI (Explainable AI)</h4>
-        <p class="mb-4 text-gray-300 text-sm">Visualisation : Transformation des données brutes en outils de pilotage via Plotly.js.</p>
-        <p class="mb-4 text-gray-300 text-sm">Exploration Vectorielle : Intégration de TensorFlow Projector pour prouver la robustesse mathématique du clustering client.</p>
-        <p class="mb-4 text-gray-300 text-sm">Architecture XAI :<br> 
-        1. Feature Importance<br>
-        2. Interactive Inspection<br>
-        3. Natural Language Explanation (NLE)<br>
-        4. Counterfactuals (What-If)</p>
+// ── MOBILE MENU ───────────────────────────────────
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
 
-        <h4 class="text-primary font-bold mb-2 uppercase text-xs tracking-widest">5. Impact Économique & Conformité</h4>
-        <p class="mb-4 text-gray-300 text-sm italic">ROI Stratégique : +18,2 % de marge identifiée.</p>
-        
-        <div class="bg-white/5 border border-primary/30 rounded-xl p-6 mb-4 text-center">
-            <p class="text-white text-sm md:text-base font-mono">
-                $$ROI = \\frac{\\text{Gain (Marge + Prod)} - \\text{Coût (IA)}}{\\text{Investissement}}$$
-            </p>
-        </div>
-
-        <p class="mb-4 text-gray-400 text-xs">Analyse de la valeur : Cette équation quantifie la valeur générée : nous soustrayons les coûts opérationnels de l'IA (tokens Gemini, crédits Tripo3D) des gains massifs de marge (18,2%) et de productivité (prototypage 2D/3D en minutes au lieu de semaines). Le gain inclut également l'évitement de coût lié à la réduction du risque industriel grâce à la validation par jumeau numérique.</p>
-        <p class="mb-6 text-gray-300 text-xs font-bold uppercase">Note de Conformité : Respect strict du RGPD et de l'AI Act.</p>
-        
-        <h4 class="text-primary font-bold mb-4 uppercase text-[0.65rem] tracking-[0.2em]">Accès aux démonstrations live</h4>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-            <a href="https://daupindavid.github.io/Ma-Carte-de-Visite/Projets/Dual_Ride/configurator.html" target="_blank" 
-               class="flex flex-col p-4 border border-primary/20 bg-primary/5 rounded-xl hover:bg-primary/10 transition-all group">
-                <span class="text-primary font-bold text-[0.6rem] uppercase tracking-widest mb-1">Interface B2C</span>
-                <span class="text-white text-sm font-bold">Configurateur 3D Immersif</span>
-                <p class="text-gray-400 text-[0.65rem] mt-2 italic leading-relaxed">
-                    Testez la personnalisation temps réel et la validation de faisabilité 3D.
-                </p>
-            </a>
-
-
-            <a href="https://daupindavid.github.io/Ma-Carte-de-Visite/Projets/Dual_Ride/dashboard.html" target="_blank" 
-               class="flex flex-col p-4 border border-white/10 bg-white/5 rounded-xl hover:bg-white/10 transition-all group">
-                <span class="text-gray-400 font-bold text-[0.6rem] uppercase tracking-widest mb-1">Interface B2B</span>
-                <span class="text-white text-sm font-bold">Dashboard Décisionnel R&D</span>
-                <p class="text-gray-400 text-[0.65rem] mt-2 italic leading-relaxed">
-                    Explorez le clustering TensorFlow et l'analyse de rentabilité industrielle. (Fichier "metadata.tsv" à retrouver sur GitHub)
-                </p>
-            </a>
-        </div>
-        <div class="flex justify-center mt-8">
-            <a href="#contact" onclick="closeModal()" 
-               class="bg-primary hover:bg-primary/80 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(244,37,175,0.4)] text-center text-xs leading-relaxed max-w-sm uppercase tracking-tighter">
-               Si ce prototype automatisé a pu démontré la puissance de la Gen IA et répond à vos attentes, discutons-en ! <br>
-               <span class="text-[0.6rem] opacity-80 mt-2 block tracking-widest">Une V2 transformera l’essai en un SaaS agentique et industriel...</span>
-            </a>
-        </div>
-      `,
-      techStack: [
-        "Python",
-        "Gemini",
-        "SAM (META)",
-        "REVE",
-        "TRIPO3D",
-        "STITCH",
-        "PLOTLY.JS",
-      ],
-      // Projet 2 : ...
-      // Projet 3 : ...
-    },
-  ],
-};
-// --- 2. GÉNÉRATION DYNAMIQUE DES LOGOS ---
-
-window.addEventListener("DOMContentLoaded", () => {
-  const logoMapping = {
-    // --- DATA & LANGAGES ---
-    PYTHON: "python",
-    SQL: "postgresql",
-    BASH: "gnubash",
-    R: "r",
-    EXCEL: "microsoftexcel",
-    VBA: "visualbasic",
-    JUPYTER: "jupyter",
-    PANDAS: "pandas",
-    POLARS: "polars",
-    "SCIKIT-LEARN": "scikitlearn",
-    XGBOOST: "xgboost",
-    TENSORFLOW: "tensorflow",
-    PYTORCH: "pytorch",
-    YOLO: "ultralytics",
-    RAG: "langchain",
-    CHROMADB: "chroma",
-    CHROMA: "chroma",
-    PINECONE: "pinecone",
-    MLFLOW: "mlflow",
-    SPARK: "apachespark",
-    PARQUET: "apacheparquet",
-    AIRFLOW: "apacheairflow",
-    MAGE: "magic",
-    KAFKA: "apachekafka",
-
-    // --- VISU & WEB ---
-    "POWER BI": "powerbi",
-    TABLEAU: "tableau",
-    DAX: "powerbi",
-    "PLOTLY.JS": "plotly",
-    STREAMLIT: "streamlit",
-    MATPLOTLIB: "matplotlib",
-    SEABORN: "matplotlib",
-    HTML5: "html5",
-    CSS3: "css3",
-    JAVASCRIPT: "javascript",
-    REACTJS: "react",
-    "NODE.JS": "nodedotjs",
-    FLASK: "flask",
-    POSTGRESQL: "postgresql",
-    MONGODB: "mongodb",
-    REDIS: "redis",
-
-    // --- TOOLS & AI ---
-    FIGMA: "figma",
-    STITCH: "mongodb",
-    "MODEL-VIEWER": "google",
-    REVE: "docsdotrs",
-    "SAM (META)": "meta",
-    TRIPOSTUDIO: "tripostudio",
-    DOCKER: "docker",
-    KUBERNETES: "kubernetes",
-    TERRAFORM: "terraform",
-    "HASHICORP VAULT": "vault",
-    PROMETHEUS: "prometheus",
-    GRAFANA: "grafana",
-    "GOOGLE CLOUD": "googlecloud",
-    GIT: "git",
-    GITHUB: "github",
-    RUST: "rust",
-    PYO3: "python",
-    CHATGPT: "openai", 
-    "GEMINI API": "googlegemini",
-    "GOOGLE AI STUDIO": "google",
-    "DALL-E": "openai", 
-    MIDJOURNEY: "midjourney",
-    "NOTION AI": "notion",
-
-    // --- MARKETING & API ---
-    SEMRUSH: "semrush",
-    AHREFS: "ahrefs",
-    "GOOGLE ADS": "googleads",
-    "GOOGLE ANALYTICS": "googleanalytics",
-    GTM: "googletagmanager",
-    STRIPE: "stripe",
-    ZAPIER: "zapier",
-    AIRTABLE: "airtable",
-    NOTION: "notion",
-    "SLACK API": "slack",
-    "DISCORD API": "discord",
-    WEBSOCKETS: "socketdotio",
-    MULTIPROCESSING: "python",
-  };
-
-  const techSpans = document.querySelectorAll(".tech-scroll span");
-
-  techSpans.forEach((span) => {
-    const techName = span.textContent.trim().replace(/\s+/g, " ");
-    const upperName = techName.toUpperCase();
-
-    let techSlug =
-      logoMapping[upperName] || techName.toLowerCase().replace(/\s+/g, "");
-
-    const div = document.createElement("div");
-    div.classList.add("tech-item");
-
-    const img = document.createElement("img");
-    img.src = `https://cdn.simpleicons.org/${techSlug}/white`;
-    img.alt = techName;
-
-    img.onerror = () => {
-      if (!img.src.includes("code")) {
-        img.src = "https://cdn.simpleicons.org/code/white";
-      }
-    };
-
-    div.appendChild(img);
-    div.appendChild(span.cloneNode(true));
-    span.parentNode.replaceChild(div, span);
+menuToggle.addEventListener("click", () => {
+  const open = mobileMenu.classList.toggle("open");
+  menuToggle.classList.toggle("open", open);
+});
+mobileMenu.querySelectorAll("a").forEach((a) => {
+  a.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+    menuToggle.classList.remove("open");
   });
 });
 
-function showData() {
-  document.getElementById("grid-data").style.display = "grid";
-  document.getElementById("placeholder-transversal").style.display = "none";
-  document.getElementById("btn-data").classList.add("active");
-  document.getElementById("btn-transversal").classList.remove("active");
+// ── TICKER WITH LOGOS ──────────────────
+function buildTicker() {
+  const track = document.getElementById("tickerTrack");
+  // Doublé pour la boucle seamless
+  const doubled = [...TECH_LOGOS, ...TECH_LOGOS];
+
+  // ✅ On utilise ENFIN ta fonction renderTickerItem issue de PROJECTS.js !
+  track.innerHTML = doubled.map((item) => renderTickerItem(item)).join("");
+}
+buildTicker();
+
+// ── PROJECTS ──────────────────────────────────────
+const PAGE_SIZE = 6;
+let currentFilter = "data";
+let currentPage = 0;
+let filteredProjects = [];
+
+function getFiltered(filter) {
+  if (filter === "all") return PROJECTS;
+  return PROJECTS.filter((p) => p.category === filter);
 }
 
-function showTransversal() {
-  document.getElementById("grid-data").style.display = "none";
-  document.getElementById("placeholder-transversal").style.display = "grid";
-  document.getElementById("btn-transversal").classList.add("active");
-  document.getElementById("btn-data").classList.remove("active");
+function renderProjectCard(p) {
+  const coverHTML = p.cover
+    ? `<img src="${p.cover}" alt="${p.coverAlt}" loading="lazy">`
+    : `<div class="project-cover-placeholder">En cours d'intégration...</div>`;
+
+  const tagsHTML = p.tags
+    .map((t) => `<span class="project-tag">${t}</span>`)
+    .join("");
+
+  const metricHTML = p.metrics
+    ? `<div class="project-metric">${p.metrics}</div>`
+    : "";
+
+  const btnHTML = !p.wip
+    ? `<button class="project-btn" onclick="openModal('${p.id}')">Voir le projet →</button>`
+    : "";
+
+  const wipClass = p.wip ? " wip" : "";
+  const wipBadge = p.wip
+    ? `<span class="project-wip-badge">En cours</span>`
+    : "";
+
+  return `
+    <div class="project-card${wipClass}" data-id="${p.id}">
+      <div class="project-cover">${coverHTML}</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <div class="project-tags">${tagsHTML}</div>
+          ${wipBadge}
+        </div>
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
+        ${metricHTML}
+        ${btnHTML}
+      </div>
+    </div>
+  `;
 }
-// --- FONCTIONS DE LA MODALE ---
-function openModal(project) {
-  const modal = document.getElementById("project-modal");
 
-  // 1. Remplissage des textes de base
-  document.getElementById("modal-title").textContent = project.title;
-  document.getElementById("modal-tag").textContent = project.tag;
-  document.getElementById("modal-body").innerHTML = project.fullDescription;
+function renderProjects(append = false) {
+  const grid = document.getElementById("projectsGrid");
+  const slice = filteredProjects.slice(0, (currentPage + 1) * PAGE_SIZE);
 
-  const stackContainer = document.getElementById("modal-stack");
-  if (stackContainer) {
-    stackContainer.innerHTML = "";
-    project.techStack.forEach((tech) => {
-      const span = document.createElement("span");
-      span.className =
-        "rounded-full bg-white/5 px-3 py-1 text-xs font-mono text-gray-400 border border-white/5";
-      span.textContent = tech;
-      stackContainer.appendChild(span);
-    });
+  if (!append) {
+    grid.innerHTML = slice.map(renderProjectCard).join("");
+  } else {
+    const start = currentPage * PAGE_SIZE;
+    const newCards = filteredProjects.slice(start, start + PAGE_SIZE);
+    grid.insertAdjacentHTML(
+      "beforeend",
+      newCards.map(renderProjectCard).join(""),
+    );
   }
 
-  // 3. Remplissage de la Galerie
-  const galleryContainer = document.getElementById("modal-gallery");
-  if (galleryContainer) {
-    galleryContainer.innerHTML = "";
-    project.imagesModal.forEach((imgSrc) => {
-      const img = document.createElement("img");
-      // ON AJOUTE LE DOSSIER img/ ICI
-      img.src = imgSrc;
-      img.alt = `Capture du projet ${project.title}`;
-      img.className =
-        "w-full h-auto rounded-lg border border-white/10 shadow-lg object-cover transition-transform hover:scale-105 duration-300";
-      galleryContainer.appendChild(img);
-    });
-  }
+  // Cursor hover on new cards
+  grid.querySelectorAll(".project-card").forEach((el) => {
+    el.addEventListener("mouseenter", () =>
+      document.body.classList.add("cursor-hover"),
+    );
+    el.addEventListener("mouseleave", () =>
+      document.body.classList.remove("cursor-hover"),
+    );
+  });
 
-  // On force l'affichage de l'équation après l'ouverture
-  if (window.MathJax && window.MathJax.typesetPromise) {
-    setTimeout(() => {
-      window.MathJax.typesetPromise();
-    }, 100);
-  }
+  // Load more button
+  const lmWrap = document.getElementById("loadMoreWrap");
+  const hasMore = filteredProjects.length > (currentPage + 1) * PAGE_SIZE;
+  lmWrap.style.display = hasMore ? "block" : "none";
+}
 
-  // 4. Affichage visuel
-  modal.classList.remove("hidden");
-  modal.style.display = "flex";
+// Filter buttons
+document.querySelectorAll(".filter-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document
+      .querySelectorAll(".filter-btn")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentFilter = btn.dataset.filter;
+    currentPage = 0;
+    filteredProjects = getFiltered(currentFilter);
+    renderProjects(false);
+  });
+});
+
+// Load more
+document.getElementById("loadMoreBtn").addEventListener("click", () => {
+  currentPage++;
+  renderProjects(true);
+});
+
+// Initial render
+filteredProjects = getFiltered("data");
+renderProjects(false);
+
+// ── MODAL ─────────────────────────────────────────
+const overlay = document.getElementById("modalOverlay");
+const modalEl = document.getElementById("modal");
+const modalInner = document.getElementById("modalInner");
+const modalClose = document.getElementById("modalClose");
+
+function openModal(id) {
+  const p = PROJECTS.find((proj) => proj.id === id);
+  if (!p || p.wip) return;
+
+  const stackHTML = p.stack.length
+    ? p.stack.map((s) => `<span class="stack-pill">${s}</span>`).join("")
+    : '<span style="color:var(--gray-5);font-size:13px">—</span>';
+
+  const galleryHTML = p.gallery.length
+    ? p.gallery
+        .map((src) => `<img src="${src}" alt="${p.title}" loading="lazy">`)
+        .join("")
+    : "";
+
+  const metricHTML = p.metrics
+    ? `<div class="modal-metric">${p.metrics}</div>`
+    : "";
+
+  const gallerySection = galleryHTML
+    ? `<p class="modal-section-label">Visuels</p><div class="modal-gallery">${galleryHTML}</div>`
+    : "";
+
+  modalInner.innerHTML = `
+    <span class="modal-tag">${p.tagline}</span>
+    <h2 class="modal-title">${p.title}</h2>
+    ${metricHTML}
+    <div class="modal-body">${p.body}</div>
+    <p class="modal-section-label">Stack technique</p>
+    <div class="modal-stack">${stackHTML}</div>
+    ${gallerySection}
+  `;
+
+  overlay.classList.add("open");
+  overlay.removeAttribute("aria-hidden");
   document.body.style.overflow = "hidden";
 }
 
 function closeModal() {
-  const modal = document.getElementById("project-modal");
-  if (modal) {
-    modal.classList.add("hidden");
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-  }
+  overlay.classList.remove("open");
+  overlay.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
 }
 
-window.addEventListener("click", function (event) {
-  const modal = document.getElementById("project-modal");
-  if (event.target === modal) {
-    closeModal();
+modalClose.addEventListener("click", closeModal);
+overlay.addEventListener("click", (e) => {
+  if (e.target === overlay) closeModal();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
+});
+
+// ── CONTACT FORM ──────────────────────────────────
+
+// 1. Initialisation de ton compte EmailJS
+emailjs.init("HTqGqdNOR5jrfb1W0"); // 👈 REMPLACE ICI par ta clé publique
+
+const form = document.getElementById("contactForm");
+const submitBtn = document.getElementById("submitBtn");
+const btnText = submitBtn.querySelector(".btn-text");
+const formSuccess = document.getElementById("formSuccess");
+
+function validateField(id, errorId, validator, message) {
+  const el = document.getElementById(id);
+  const errEl = document.getElementById(errorId);
+  const field = el.closest(".form-field");
+  const valid = validator(el.value.trim());
+  if (!valid) {
+    errEl.textContent = message;
+    field.classList.add("error");
+  } else {
+    errEl.textContent = "";
+    field.classList.remove("error");
   }
+  return valid;
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const nameOk = validateField("name", "nameError", (v) => v.length >= 2, "Nom requis (min. 2 caractères)");
+  const emailOk = validateField("email", "emailError", (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), "Email invalide");
+  const msgOk = validateField("message", "messageError", (v) => v.length >= 10, "Message requis (min. 10 caractères)");
+
+  if (!nameOk || !emailOk || !msgOk) return;
+
+  submitBtn.disabled = true;
+  btnText.textContent = "Envoi en cours...";
+
+  try {
+    // 2. L'envoi réel de l'email via EmailJS
+    // 👈 REMPLACE par ton Service ID et ton Template ID
+    await emailjs.send("service_4v48u3c", "template_94i0r8k", {
+      from_name: document.getElementById("name").value,
+      from_email: document.getElementById("email").value,
+      message: document.getElementById("message").value,
+    });
+
+    // Si ça réussit :
+    form.reset();
+    formSuccess.style.display = "block";
+    btnText.textContent = "✓ Envoyé !";
+
+    setTimeout(() => {
+      formSuccess.style.display = "none";
+      btnText.textContent = "Envoyer le message";
+      submitBtn.disabled = false;
+    }, 5000);
+
+  } catch (err) {
+    // Si ça échoue (problème de réseau, mauvaises clés...)
+    btnText.textContent = "Erreur — réessaie";
+    console.error("EmailJS error:", err);
+    setTimeout(() => {
+      btnText.textContent = "Envoyer le message";
+      submitBtn.disabled = false;
+    }, 3000);
+  }
+});
+
+// Validation live au blur
+["name", "email", "message"].forEach((id) => {
+  document.getElementById(id).addEventListener("blur", () => {
+    if (id === "name")
+      validateField("name", "nameError", (v) => v.length >= 2, "Nom requis");
+    if (id === "email")
+      validateField(
+        "email",
+        "emailError",
+        (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+        "Email invalide",
+      );
+    if (id === "message")
+      validateField(
+        "message",
+        "messageError",
+        (v) => v.length >= 10,
+        "Message trop court",
+      );
+  });
 });

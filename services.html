@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Services | David Daupin</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- CHANGEMENT 1 : suppression de class="services-page" (inutilisée dans le CSS) -->
+
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+
+    <header id="header" class="scrolled">
+        <nav class="nav-inner">
+            <a href="index.html" class="nav-logo">David Daupin<span class="logo-dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">À propos</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projects">Projets</a></li>
+            </ul>
+            <a href="index.html#contact" class="nav-cta">Retour au Contact</a>
+        </nav>
+    </header>
+
+    <!-- CHANGEMENT 2 : style="padding-top:160px; min-height:100vh" → classe .services-section -->
+    <section class="projects services-section" id="services">
+        <div class="container">
+
+            <!-- CHANGEMENT 3 : style="margin-bottom:20px" + gradient inline → classe .services-title -->
+            <h1 class="section-title services-title reveal visible delay-1">
+                Solutions Data & IA <br>
+                <span class="services-title-accent">Architecturées pour la Croissance</span>
+            </h1>
+
+            <!-- CHANGEMENT 4 : style="color:var(--gray-6);max-width:600px;..." → classe .services-intro -->
+            <p class="services-intro reveal visible delay-2">
+                Je construis les infrastructures techniques, les systèmes d'acquisition automatisés et les leviers de
+                conversion dont votre business a besoin pour scaler.
+            </p>
+
+            <div class="projects-grid reveal visible delay-3">
+
+                <div class="project-card service-card">
+                    <div class="project-body service-card-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Data / IA</span>
+                            <span class="project-tag">UX de Conversion</span>
+                            <span class="project-tag">CRO</span>
+                        </div>
+                        <!-- CHANGEMENT 5 : style="margin:20px 0 10px; font-size:1.6rem" → classe .service-card-title -->
+                        <h3 class="service-card-title">Optimisation de la Conversion E-commerce</h3>
+                        <!-- CHANGEMENT 6 : style="font-size:14px;line-height:1.6;color:var(--gray-6)" → classe .service-card-desc -->
+                        <p class="service-card-desc">Analyse chirurgicale de vos frictions UX sur mobile et des paniers
+                            abandonnés. Refonte de l'infrastructure de paiement et déploiement d'un système d'IA
+                            prédictif pour relancer intelligemment le chiffre d'affaires perdu.</p>
+                        <!-- CHANGEMENT 7 : style="margin-top:15px;color:var(--accent);..." → classe .service-card-metric -->
+                        <div class="service-card-metric">Valeur : Augmentation du taux de conversion mesurable</div>
+                    </div>
+                </div>
+
+                <div class="project-card service-card">
+                    <div class="project-body service-card-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Growth Engineering</span>
+                            <span class="project-tag">Scraping</span>
+                            <span class="project-tag">Data</span>
+                        </div>
+                        <h3 class="service-card-title">Machine à Leads Automatisée (B2B)</h3>
+                        <p class="service-card-desc">Déploiement de pipelines de scraping intensifs et de scripts d'IA
+                            pour extraire, enrichir et hyper-personnaliser vos messages de prospection. Construction
+                            d'un CRM autonome qui génère vos rendez-vous h24 sans action humaine.</p>
+                        <div class="service-card-metric">Valeur : Flux continu de prospects hautement qualifiés</div>
+                    </div>
+                </div>
+
+                <div class="project-card service-card">
+                    <div class="project-body service-card-body">
+                        <div class="project-tags">
+                            <span class="project-tag">RevOps</span>
+                            <span class="project-tag">Bots IA</span>
+                            <span class="project-tag">Make / API</span>
+                        </div>
+                        <h3 class="service-card-title">Infrastructure RevOps & Réponse Instantanée</h3>
+                        <p class="service-card-desc">Idéal pour l'Immobilier et la Gestion de Patrimoine. Intégration
+                            d'un cerveau IA connecté à vos formulaires qui qualifie les prospects en temps réel par SMS
+                            / WhatsApp 24h/24 pour éliminer les délais de traitement et devancer vos concurrents.</p>
+                        <div class="service-card-metric">Valeur : Rappel instantané des leads & Zéro perte de business
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card service-card">
+                    <div class="project-body service-card-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Growth Hacking</span>
+                            <span class="project-tag">Data Harvesting</span>
+                            <span class="project-tag">SaaS</span>
+                        </div>
+                        <h3 class="service-card-title">Capture de Parts de Marché & Churn Competitors</h3>
+                        <p class="service-card-desc">Mise en place d'un système de capture algorithmique interceptant
+                            les utilisateurs insatisfaits de vos gros concurrents (via analyse de sentiment IA).
+                            Pipeline de données brut livré directement à vos équipes pour alimenter vos ventes.</p>
+                        <div class="service-card-metric">Valeur : Acquisition offensive ciblée sur la concurrence</div>
+                    </div>
+                </div>
+
+                <div class="project-card service-card">
+                    <div class="project-body service-card-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Tech Partner</span>
+                            <span class="project-tag">Tunnels</span>
+                            <span class="project-tag">Automations</span>
+                        </div>
+                        <h3 class="service-card-title">Architecture de Tunnels & Systèmes de Vente</h3>
+                        <p class="service-card-desc">Externalisation technique complète de vos lancements et tunnels de
+                            formation. Connexion automatisée et blindée entre vos plateformes de paiement (Stripe), vos
+                            CRM, vos webinaires et vos espaces membres.</p>
+                        <div class="service-card-metric">Valeur : Zéro bug technique & Encaissements 100% automatisés
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CHANGEMENT 8 : style="text-align:center;margin-top:80px" → classe .services-cta-wrap -->
+            <div class="services-cta-wrap reveal visible delay-4">
+                <a href="index.html#contact" class="btn-primary services-cta-btn">Lançons un projet ensemble !</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CHANGEMENT 9 : style="margin-top:100px" → classe .services-footer -->
+    <footer class="services-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span class="footer-logo">David Daupin<span class="logo-dot">.</span></span>
+                <p>© 2026 David Daupin — Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHANGEMENT 10 : suppression du <script> inline → on réutilise script.js directement -->
+    <!-- script.js gère déjà le curseur, le header scroll, le mobile menu — rien à dupliquer -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
