@@ -115,7 +115,7 @@ function renderProjectCard(p) {
     : "";
 
   const btnHTML = !p.wip
-    ? `<button class="project-btn" onclick="openModal('${p.id}')">Voir le projet →</button>`
+    ? `<button class="project-btn js-open-modal" data-id="${p.id}">Voir le projet →</button>`
     : "";
 
   const wipClass = p.wip ? " wip" : "";
@@ -156,13 +156,18 @@ function renderProjects(append = false) {
   }
 
   // Cursor hover on new cards
-  grid.querySelectorAll(".project-card").forEach((el) => {
+  grid.querySelectorAll(".project-card:not(.wip)").forEach((el) => {
     el.addEventListener("mouseenter", () =>
       document.body.classList.add("cursor-hover"),
     );
     el.addEventListener("mouseleave", () =>
       document.body.classList.remove("cursor-hover"),
     );
+  });
+
+  // Délégation d'événement — plus de onclick inline
+  grid.querySelectorAll(".js-open-modal").forEach((btn) => {
+    btn.addEventListener("click", () => openModal(btn.dataset.id));
   });
 
   // Load more button
@@ -281,9 +286,24 @@ function validateField(id, errorId, validator, message) {
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const nameOk = validateField("name", "nameError", (v) => v.length >= 2, "Nom requis (min. 2 caractères)");
-  const emailOk = validateField("email", "emailError", (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), "Email invalide");
-  const msgOk = validateField("message", "messageError", (v) => v.length >= 10, "Message requis (min. 10 caractères)");
+  const nameOk = validateField(
+    "name",
+    "nameError",
+    (v) => v.length >= 2,
+    "Nom requis (min. 2 caractères)",
+  );
+  const emailOk = validateField(
+    "email",
+    "emailError",
+    (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+    "Email invalide",
+  );
+  const msgOk = validateField(
+    "message",
+    "messageError",
+    (v) => v.length >= 10,
+    "Message requis (min. 10 caractères)",
+  );
 
   if (!nameOk || !emailOk || !msgOk) return;
 
@@ -309,7 +329,6 @@ form.addEventListener("submit", async (e) => {
       btnText.textContent = "Envoyer le message";
       submitBtn.disabled = false;
     }, 5000);
-
   } catch (err) {
     // Si ça échoue (problème de réseau, mauvaises clés...)
     btnText.textContent = "Erreur — réessaie";
