@@ -1541,3 +1541,23 @@ footer p {
 .services-footer {
   margin-top: 100px;
 }
+
+/* ── PROJECTS INTRO TEXT ─────────────────────────── */
+.projects-intro-text {
+  font-size: 1.05rem;
+  color: var(--gray-5);
+  max-width: 680px;
+  margin: 0 0 2.5rem;
+  line-height: 1.8;
+}
+
+.projects-intro-text strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.projects-intro-text em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 500;
+}

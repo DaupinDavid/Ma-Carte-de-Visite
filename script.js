@@ -192,7 +192,8 @@ document.getElementById("loadMoreBtn").addEventListener("click", () => {
 });
 
 // Initial render
-filteredProjects = getFiltered("data");
+currentFilter = "hetic";
+filteredProjects = getFiltered("hetic");
 renderProjects(false);
 
 // ── MODAL ─────────────────────────────────────────
