@@ -1578,3 +1578,7 @@ footer p {
   font-style: normal;
   font-weight: 500;
 }
+
+.project-card:not(.wip) {
+  cursor: pointer;
+}

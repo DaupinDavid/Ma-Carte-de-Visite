@@ -101,20 +101,63 @@ const PROJECTS = [
 
   {
     id: "data-monitor",
-    title: "Data Monitor – Veille Concurrentielle E-commerce",
+    title: "Data Monitor – Veille Cocurrentielle Automatisée",
     category: "hetic",
-    tags: ["Web Scraping", "Power BI", "SQL"],
-    tagline: "COLLECTE, DATA ENGINEERING & BI",
-    cover: "",
-    coverAlt: "Data Monitor – Veille Concurrentielle E-commerce",
-    description: "Scraping de 1 849 produits sur 7 enseignes sportives → Base SQL → Dashboard Power BI. 5 insights stratégiques pour Intersport (-15% vs marché).",
-    featured: false,
-    wip: true,
-    stack: ["Python", "Playwright", "BeautifulSoup", "SQL", "Excel", "Power BI", "DAX"],
-    metrics: "1 849 produits · 7 enseignes analysées",
-    body: `<p>Projet en cours d'intégration.</p>`,
-    gallery: [],
-    links: { github: "", live: "" },
+    tags: ["Scrapping", "Data Engineering", "Power BI", "Power Query", "Excel"],
+    tagline: "PIPELINE END-TO-END & BUSINESS INTELLIGENCE",
+    cover: "Projets/Data_Monitor/img/datamonitorcover.png", // ⚠️ N'oublie pas de mettre le chemin de ton image principale
+    coverAlt: "Dashboard Data Monitor Intersport",
+    description: "Conception d'un pipeline complet (ETL) : Extraction Python, nettoyage Excel/Power Query et Modélisation Power BI pour piloter la stratégie.",
+    featured: true, // Passe-le à 'true' pour qu'il soit mis en avant !
+    wip: false, // On enlève le "Work In Progress"
+    stack: [
+      "Python",
+      "Excel",
+      "Power Query",
+      "Power BI",
+      "DAX"
+    ],
+    metrics: "1 849 références · Modélisation 100% Automatisée",
+    body: `
+      <h4 class="modal-section-label" style="color:var(--accent);margin-bottom:.5rem">1. Le Contexte & L'Objectif Stratégique</h4>
+      <p>Dans un environnement inondé de données non structurées, la prise de décision rapide est impossible. L'objectif de ce projet était de concevoir une <strong>plateforme d'aide à la décision (Data Engineering)</strong> appliquée au marché très concurrentiel du E-commerce sportif.</p>
+      <p>J'ai pris l'initiative de réaliser ce projet afin de maîtriser chaque maillon de la chaîne de valeur de la donnée : de la collecte brute jusqu'à la recommandation stratégique finale.</p>
+
+      <h4 class="modal-section-label" style="color:var(--accent);margin-top:1.5rem;margin-bottom:.5rem">2. Architecture du Pipeline (ETL End-to-End)</h4>
+      <p><strong>Extraction (Python) :</strong> Création d'un robot (Scraping) pour automatiser la récupération de données sur 7 sites majeurs. Gestion de la pagination dynamique et extraction asynchrone.</p>
+      <p><strong>Transformation & Fiabilisation (Excel / Power Query) :</strong> C'est le cœur du réacteur. Utilisation avancée d'<strong>Excel (TCD, matrices croisées)</strong> pour le pré-traitement, puis intégration dans Power Query pour nettoyer les valeurs aberrantes (N/A) et structurer la base de données. Création d'une "Single Source of Truth".</p>
+      <p><strong>Modélisation DAX :</strong> Programmation de requêtes complexes pour automatiser le calcul d'indicateurs clés (KPI) comme le taux de rupture ou les écarts de prix.</p>
+
+      <h4 class="modal-section-label" style="color:var(--accent);margin-top:1.5rem;margin-bottom:.5rem">3. Résultats & Insights Actionnables</h4>
+      <p>L'outil final transforme des milliers de lignes illisibles en 3 tableaux de bord interactifs (Power BI), générant des recommandations stratégiques :</p>
+      <ul style="color:#9ca3af; font-size:0.9rem; margin-left:1.5rem; line-height:1.6;">
+        <li><strong>Détection des gaps concurrentiels :</strong> Identification d'une sous-représentation stratégique sur certains segments (opportunité marché).</li>
+        <li><strong>Cartographie logistique :</strong> Suivi des anomalies et des ruptures de stock en temps réel.</li>
+        <li><strong>Preuve mathématique :</strong> Démonstration d'un avantage tarifaire massif (-15,05%) ignoré jusqu'alors.</li>
+      </ul>
+      <p style="font-size:.7rem;font-weight:700;letter-spacing:.1em;color:#9ca3af;text-transform:uppercase;margin-top:1rem;">Bénéfice : Une actualisation automatisée pour piloter l'activité avec 0% de double saisie.</p>
+
+      <h4 class="modal-section-label" style="color:var(--accent);margin-top:2rem;margin-bottom:1rem">Accès au Code Source</h4>
+      <div style="display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:2rem">
+        <a href="https://github.com/DaupinDavid/Data_Monitor"
+           target="_blank"
+           style="display:flex;flex-direction:column;padding:1rem;border:1px solid rgba(var(--accent-rgb),.25);background:rgba(var(--accent-rgb),.05);border-radius:.75rem;text-decoration:none;transition:background .2s"
+           onmouseover="this.style.background='rgba(var(--accent-rgb),.12)'"
+           onmouseout="this.style.background='rgba(var(--accent-rgb),.05)'">
+          <span style="font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.25rem">Dépôt GitHub</span>
+          <span style="font-weight:700;color:#fff;font-size:.9rem">Explorer l'Architecture Data </span>
+          <span style="font-size:.65rem;color:#9ca3af;margin-top:.5rem;font-style:italic;line-height:1.5">Plongez dans la mécanique de l'outil : scripts d'automatisation Python, pré-traitement avancé sous Excel et fiabilisation des bases de données.</span>
+        </a>
+      </div>
+    `,
+    gallery: [
+      // ⚠️ IMPORTANT : Mets ici les chemins exacts vers tes 4 PDF transformés en images (Insights, Prix, Qualité, Tableaux Excel)
+      "Projets/Data_Monitor/img/0.png",
+      "Projets/Data_Monitor/img/1.png",
+      "Projets/Data_Monitor/img/2.png", 
+      "Projets/Data_Monitor/img/3.png"
+    ],
+    links: { github: "https://github.com/DaupinDavid/Data_Monitor", live: "" }, // ⚠️ Ton lien GitHub est inséré ici
   },
 
   {

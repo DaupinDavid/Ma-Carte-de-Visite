@@ -92,7 +92,7 @@ buildTicker();
 
 // ── PROJECTS ──────────────────────────────────────
 const PAGE_SIZE = 6;
-let currentFilter = "data";
+let currentFilter = "hetic";
 let currentPage = 0;
 let filteredProjects = [];
 
@@ -155,19 +155,18 @@ function renderProjects(append = false) {
     );
   }
 
-  // Cursor hover on new cards
-  grid.querySelectorAll(".project-card:not(.wip)").forEach((el) => {
-    el.addEventListener("mouseenter", () =>
+  // 🔥 LA MAGIE OPÈRE ICI : On rend la carte 100% cliquable
+  grid.querySelectorAll(".project-card:not(.wip)").forEach((card) => {
+    // 1. Le clic sur n'importe quel endroit de la carte ouvre le projet
+    card.onclick = () => openModal(card.dataset.id);
+
+    // 2. L'effet visuel du curseur quand on la survole
+    card.addEventListener("mouseenter", () =>
       document.body.classList.add("cursor-hover"),
     );
-    el.addEventListener("mouseleave", () =>
+    card.addEventListener("mouseleave", () =>
       document.body.classList.remove("cursor-hover"),
     );
-  });
-
-  // Délégation d'événement — plus de onclick inline
-  grid.querySelectorAll(".js-open-modal").forEach((btn) => {
-    btn.addEventListener("click", () => openModal(btn.dataset.id));
   });
 
   // Load more button
